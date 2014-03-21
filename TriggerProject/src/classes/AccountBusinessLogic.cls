@@ -1,3 +1,7 @@
+/*Hi there...how r u @ workspace
+
+
+*/
 public with sharing class AccountBusinessLogic {
 	
 	public static void accountCreationLogic(Account soType, List<Task> taskLists){
