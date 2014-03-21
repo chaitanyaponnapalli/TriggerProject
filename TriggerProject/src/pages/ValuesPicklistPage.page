@@ -1,0 +1,78 @@
+<apex:page Controller="CustomPickListDemo" extensions="CompaignExtension" tabstyle="Account">
+
+ <apex:form >
+
+  <apex:pageBlock title="Campaign Details">
+
+   <apex:pageblockbuttons >
+    <apex:commandbutton action="{!redirectoEdit}" value="Edit" />
+    <apex:commandbutton action="{!redirectoClone}" value="Copy" />
+   </apex:pageblockbuttons>
+
+   <apex:pageBlockSection title="Campaign Details" columns="2">
+
+                
+    <apex:pageBlockSectionItem >
+        <apex:outputLabel value="Owner" />
+     <apex:outputField label="Owner" value="{!currentrecord.OwnerId}" />
+    </apex:pageBlockSectionItem>
+
+    <apex:pageBlockSectionItem >
+     <apex:outputLabel value="Category" />
+     <apex:outputField value="{!currentrecord.Name}"/>
+    </apex:pageBlockSectionItem>
+
+    <apex:pageBlockSectionItem >
+     <apex:outputLabel value="Campaign Name" />
+     <apex:outputField value="{!currentrecord.Name}" />
+    </apex:pageBlockSectionItem>
+
+    <apex:pageBlockSectionItem >
+     <apex:outputLabel value="Type" />
+     <apex:outputField value="{!currentrecord.Type}" />
+    </apex:pageBlockSectionItem>
+
+     <apex:pageBlockSectionItem >
+          <apex:outputLabel value="Start Date"/>
+          <apex:outputField value="{!currentrecord.StartDate}"/>
+         </apex:pageBlockSectionItem>
+                    
+      <apex:pageBlockSectionItem >
+            <apex:outputLabel value="Num Sent"/>
+            <apex:outputField value="{!currentrecord.NumberSent}"/>
+      </apex:pageBlockSectionItem>
+
+      <apex:pageBlockSectionItem >
+             <apex:outputLabel value="End Date"/>
+             <apex:outputField value="{!currentrecord.EndDate}"/>
+       </apex:pageBlockSectionItem>
+              
+       <apex:pageBlockSectionItem >
+             <apex:outputLabel value="Parent Campaign"/>
+             <apex:outputField value="{!currentrecord.ParentId}"/>
+       </apex:pageBlockSectionItem>
+
+                     <apex:pageBlockSectionItem >
+               <apex:outputLabel value="Created By"/>
+               <apex:outputField value="{!currentrecord.CreatedById}"/>
+         </apex:pageBlockSectionItem>
+         
+         <apex:pageBlockSectionItem >
+                 <apex:outputLabel value="Status"/>
+                 <apex:outputField value="{!currentrecord.Status}"/>
+          </apex:pageBlockSectionItem>
+
+          <apex:pageBlockSectionItem >
+                 <apex:outputLabel value="Last Modified By"/>
+                 <apex:outputField value="{!currentrecord.LastModifiedById}"/>
+         </apex:pageBlockSectionItem>
+         
+          <apex:pageBlockSectionItem >
+                  <apex:outputLabel value="Discription"/>
+                  <apex:outputField value="{!currentrecord.Description}"/>
+          </apex:pageBlockSectionItem>
+
+   </apex:pageBlockSection>
+  </apex:pageBlock>
+ </apex:form>
+</apex:page>

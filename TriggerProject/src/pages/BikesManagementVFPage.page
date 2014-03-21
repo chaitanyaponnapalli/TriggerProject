@@ -1,0 +1,97 @@
+<apex:page StandardController="Quote" renderAs="pdf">
+<apex:pageBlock >
+    <apex:form >
+        <table width="100%">
+        <tr width="100%">
+        <td width="50%" align="Left">
+        <hr></hr>
+        <h2><apex:outputText />
+        Opportunity : {!Quote.Opportunity.Name}</h2>    
+        <hr></hr>
+       
+        </td>
+        </tr>
+        </table>
+        
+        <table align="top">
+        <tr>
+        <td>Created Date:</td>
+        <td>{!Quote.CreatedDate}</td>
+        </tr>
+        <tr>
+        <td>Expiration Date:</td>
+        <td>{!Quote.ExpirationDate}</td>
+        </tr>
+        </table>
+        
+        <apex:pageBlockSection >
+        <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Quote Number:"/>
+                <apex:OutputLabel value="{!Quote.QuoteNumber}"/>
+        </apex:pageBlockSectionItem><br/>   
+            
+        <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Name:"/>
+                <apex:OutputLabel value="{!Quote.Name}"/> 
+        </apex:pageBlockSectionItem><br/><br/>   
+        
+        <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Opportunity Name:"/>
+                <apex:OutputLabel value="{!Quote.Opportunity.Name}"/> 
+        </apex:pageBlockSectionItem><br/><br/>  
+        </apex:pageBlockSection><br/> 
+        
+        <apex:pageBlockSection >
+                <apex:dataTable border="2" value="{!Quote.QuoteLineItems}" var="c" style="font-size: 100%; " columnsWidth=" 200px, 150px, 150px, 150px, 150px ,100px ">
+                <apex:column >
+                <apex:facet name="header">Product Name</apex:facet><br/>
+                <apex:outputText value="{!c.PriceBookEntry.Product2.Name}"/>
+                </apex:column>
+                
+                <apex:column >
+                <apex:facet name="header">Quantity</apex:facet><br/>    
+                <apex:outputText value="{!c.Quantity}"/ >
+                </apex:column>          
+                 
+                <apex:column >
+                <apex:facet name="header">List Price</apex:facet><br/>
+                <apex:outputText value="{!c.ListPrice}"/>
+                </apex:column>
+                
+                <apex:column >
+                <apex:facet name="header">TotalPrice</apex:facet><br/>
+                <apex:outputText value="{!c.TotalPrice}"/>
+                </apex:column>
+                
+                </apex:dataTable>
+                </apex:pageBlockSection>
+        </apex:form> 
+        <hr></hr>
+        <apex:pageBlockSection >
+        <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Grand Total:"/>
+                <apex:OutputLabel value="{!Quote.GrandTotal}"/> 
+        </apex:pageBlockSectionItem>
+        </apex:pageBlockSection>
+        <hr></hr>
+        <apex:pageBlockSection columns="1" >
+                    <apex:outputLabel style="font-weight:bold" value="Quote Acceptance Information" /><br/><br/>
+                     <apex:pageBlockSectionItem >
+                     <apex:outputLabel value="Signature  :" />
+                     </apex:pageBlockSectionItem><br/><br/>
+                     
+                     <apex:pageBlockSectionItem >
+                     <apex:outputLabel value="Name  :"/>
+                     </apex:pageBlockSectionItem><br/><br/>
+                     
+                     <apex:pageBlockSectionItem >
+                     <apex:outputLabel value="Title  :" />
+                     </apex:pageBlockSectionItem><br/><br/>
+                     
+                     <apex:pageBlockSectionItem >
+                     <apex:outputLabel value="Date  :" />
+                     </apex:pageBlockSectionItem><br/>
+         </apex:pageBlockSection>
+</apex:pageBlock><br/><br/>
+Generated Date/Time:     <apex:outputText value="{!NOW()}"></apex:outputText>
+</apex:page>

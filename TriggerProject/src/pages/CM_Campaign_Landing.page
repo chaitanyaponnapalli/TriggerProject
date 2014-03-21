@@ -1,0 +1,22 @@
+<apex:page standardController="Campaign" extensions="CampaignClassController" >
+
+VIEW:<apex:form >
+<apex:pageBlock >
+<apex:pageBlockSection title="User Driven Campaign" >
+<apex:pageBlockSectionItem >
+<apex:panelGroup >
+ <apex:selectList value="{!profiles}" size="1" required="true">
+    <apex:selectOptions value="{!items}"/>
+      </apex:selectList>
+     <apex:commandButton action="{!fetchRecords}"  value="GO" id="btnFetch" />
+ </apex:panelGroup>
+
+  </apex:pageBlockSectionItem>
+</apex:pageBlockSection>
+ 
+
+</apex:pageBlock>
+
+</apex:form>
+
+</apex:page>

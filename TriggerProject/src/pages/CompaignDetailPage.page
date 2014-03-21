@@ -1,0 +1,32 @@
+<apex:page Controller="CustomPickListDemo" >
+    <apex:form >
+    <apex:pageblock >
+    <apex:panelGrid columns="5">      
+            
+       View : <apex:selectList value="{!SelectedCity}" multiselect="false" size="1">
+         <apex:selectOptions value="{!City}"/>
+       </apex:selectList>
+      <apex:commandButton value="Go" action="{!Go}" reRender="campaignDetails"/>
+      
+     </apex:panelGrid> 
+    </apex:pageblock>
+    
+    <apex:pageBlock id="campaignDetails">
+      <apex:pageBlockTable value="{!campaignList}" var="item">
+           <apex:column >
+          
+   <a href="/apex/ValuesPicklistPage?id={!item.id}" target="_self" >
+      <apex:outputtext value="{!item.Name}"/>
+   </a>	
+         
+           </apex:column>
+            <apex:commandLink action="{!redirect}"> {!item.Name}
+           <apex:param name="id" assignTo="{!seletcampaign}" value="{!item.id}"/>
+           </apex:commandLink>
+          <apex:column value="{!item.Status}"/> 
+          <apex:column value="{!item.Type}"/> 
+          <apex:column value="{!item.StartDate}"/> 
+      </apex:pageBlockTable> 
+  </apex:pageBlock>    
+  </apex:form>
+</apex:page>

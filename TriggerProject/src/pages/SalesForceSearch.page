@@ -1,0 +1,56 @@
+<apex:page controller="theController">
+<apex:outputPanel id="block">
+ <apex:pagemessages id="searchTextError" />
+ </apex:outputPanel>
+<apex:form >
+<apex:pageBlock mode="edit" id="block">
+<apex:pageBlockSection >
+<apex:pageBlockSectionItem >
+<apex:outputLabel for="searchText">Search Text</apex:outputLabel>
+<apex:panelGroup >
+<apex:inputText id="searchText" value="{!searchText}"/>
+<apex:commandButton value="Go!" action="{!doSearch}"
+reRender="searchTextError" status="status" />
+</apex:panelGroup>
+</apex:pageBlockSectionItem>
+</apex:pageBlockSection>
+<apex:actionStatus id="status" startText="requesting..."/>
+
+<apex:pageBlockSection title="Lead" rendered="{!ListValue}" id="results" columns="1">
+<apex:pageBlockTable value="{!results}" var="l"
+rendered="{!NOT(ISNULL(results))}">
+<apex:column value="{!l.name}"/>
+</apex:pageBlockTable>
+</apex:pageBlockSection>
+
+
+<apex:pageBlockSection title="Contacts" rendered="{!ContactValue}" id="contacts" columns="1">
+<apex:pageBlockTable value="{!contacts}" var="c"
+rendered="{!NOT(ISNULL(contacts))}">
+<apex:column value="{!c.name}"/>
+</apex:pageBlockTable>
+</apex:pageBlockSection>
+
+
+
+<apex:pageBlockSection title="Opportunities" rendered="{!OpportunityValue}" id="opportunities" columns="1">
+<apex:pageBlockTable value="{!opportunities}" var="o"
+rendered="{!NOT(ISNULL(opportunities))}">
+<apex:column value="{!o.name}"/>
+</apex:pageBlockTable>
+</apex:pageBlockSection>
+
+
+
+<apex:pageBlockSection title="Accounts" rendered="{!AccountValue}" id="accounts" columns="1">
+<apex:pageBlockTable value="{!accounts}" var="a"
+rendered="{!NOT(ISNULL(accounts))}">
+<apex:column value="{!a.name}"/>
+</apex:pageBlockTable>
+</apex:pageBlockSection>
+
+
+
+</apex:pageBlock>
+</apex:form>
+</apex:page>
